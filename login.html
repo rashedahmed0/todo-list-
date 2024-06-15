@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="container mx-auto px-4 mt-5">
+        <h1 class="text-center text-4xl font-bold mb-10"> TODO list LogIn <span class="text-rose-600">page</span></h1>
+
+        <section class="login mx-auto p-10 bg-rose-200 max-w-md">
+            <input id="email" type="email" placeholder="Enter your email"
+                class="py-2 px-5 md:px-32 outline-none mb-5 block w-full">
+            <input id="password" type="password" placeholder="Enter your password"
+                class="py-2 px-5 md:px-32 outline-none mb-5 block w-full">
+            <button id="btn" class="border bg-rose-500 px-8 py-2 text-white w-full">Login</button>
+        </section>
+    </div>
+
+    <script>
+        document.getElementById('btn').addEventListener('click', function () {
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            console.log('email:', email.value, "password:", password.value);
+            if (email.value === 'rialahmed@gmail.com' && password.value === 'rialahmed') {
+                window.location.href = 'index.html';
+            }
+            else {
+                alert('try again')
+            }
+        })
+    </script>
+</body>
+
+</html>
