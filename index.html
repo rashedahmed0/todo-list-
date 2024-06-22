@@ -6,14 +6,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        ul {}
+
+        ul li {
+            font-size: 17px;
+            padding: 12px 8px 12px 50px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        ul li::before {
+            content: '';
+            position: absolute;
+            height: 28px;
+            width: 28px;
+            border-radius: 50%;
+            background-image: url(./images/unchecked.png);
+            background-size: cover;
+            background-position: center;
+            top: 13px;
+            left: 15px;
+
+        }
+
+        .checked {
+            color: #777;
+            text-decoration: line-through;
+        }
+
+        .checked::before {
+            content: '';
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-image: url(./images/checked.png);
+            background-size: cover;
+            background-position: center;
+            top: 13px;
+            left: 15px;
+        }
+
+        ul li span {
+            position: absolute;
+            right: 30px;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            background-color: #c3c3c3;
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+        }
+    </style>
 </head>
 
-<body>
-    <div class="container mx-auto px-4 mt-5">
-        <h1 class="text-center text-4xl font-bold mb-10"> TODO <span class="text-rose-600">list</span></h1>
+<body class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+    <section
+        class="bg-white w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] xl:w-[40%] mx-auto my-10 border-sm rounded-xl pb-10">
+        <div class="flex flex-col sm:flex-row items-center p-4">
+            <h1 class="text-3xl font-bold text-center sm:text-left">Todo <span class="text-rose-400">List</span> </h1>
+            <img class="w-12 mt-4 sm:mt-0 sm:ml-5" src="./images/icon.png">
+        </div>
+        <!-- add task section  -->
+        <div class="addTask flex flex-col md:flex-row justify-center relative p-4">
+            <input id="input" type="text"
+                class="input relative rounded-3xl w-full md:w-[80%] py-3 bg-slate-100 outline-none px-10 mb-4 md:mb-0 "
+                placeholder="Add Your Task">
+            <button class="w-full md:w-auto px-10 py-3 bg-rose-400 rounded-3xl text-white md:absolute right-10"
+                id="btn">Add</button>
+        </div>
+    </section>
+    <!-- show task section -->
+    <section
+        class="bg-white w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] xl:w-[40%] mx-auto my-10 border-sm rounded-xl pb-2">
 
-    </div>
+        <ul id="list">
+            <li class="checked relative"> task 1
+            </li>
+            <li class=""> task 2 </li>
+            <li class=""> task 3 </li>
+        </ul>
+    </section>
 
+
+
+
+
+    <script>
+        document.getElementById('btn').addEventListener('click', function () {
+            const ulList = document.getElementById('list');
+            const input = document.getElementById('input');
+            const inputValue = input.value;
+            const li = document.createElement('li');
+            li.innerText = inputValue;
+            ulList.appendChild(li);
+            input.value = '';
+            li.classList.add('relative')
+            const span = document.createElement('span');
+            span.innerText = 'X';
+            li.appendChild(span);
+        })
+
+
+    </script>
 </body>
 
 </html>
