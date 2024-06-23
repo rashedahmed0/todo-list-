@@ -57,6 +57,14 @@
             height: 30px;
             width: 30px;
             border-radius: 50%;
+            transition: 0.5s;
+        }
+
+        ul li span:hover {
+
+            background-color: #939393;
+            color: white;
+
         }
     </style>
 </head>
@@ -82,10 +90,10 @@
         class="bg-white w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] xl:w-[40%] mx-auto my-10 border-sm rounded-xl pb-2">
 
         <ul id="list">
-            <li class="checked relative"> task 1
+            <!-- <li class="checked relative"> task 1
             </li>
             <li class=""> task 2 </li>
-            <li class=""> task 3 </li>
+            <li class=""> task 3 </li> -->
         </ul>
     </section>
 
@@ -108,11 +116,12 @@
                 const li = document.createElement('li');
                 li.innerText = inputValue;
                 ulList.appendChild(li);
-                input.value = '';
                 li.classList.add('relative')
                 const span = document.createElement('span');
                 span.innerText = 'X';
                 li.appendChild(span);
+                saveData()
+                input.value = '';
             }
         })
 
@@ -122,7 +131,7 @@
             for (const li of lis) {
 
                 if (event.target === li) {
-                    li.classList.add("checked");
+                    li.classList.toggle("checked");
                 }
 
             }
@@ -133,6 +142,13 @@
                 }
             }
         })
+
+
+
+
+        function saveData() {
+            localStorage.setItem('data', list.innerHTML)
+        }
 
     </script>
 </body>
