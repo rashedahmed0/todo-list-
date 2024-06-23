@@ -98,8 +98,11 @@
     </section>
 
 
-    <button id="outbtn"
-        class="border bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 px-8 py-2 text-white w-full">LogOut</button>
+    <section id="logout" class="text-center mt-5">
+        <button
+            class="border bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-xl border-none px-8 py-2 text-white"
+            id="logout-btn">LogOut</button>
+    </section>
 
 
 
@@ -107,10 +110,8 @@
 
 
     <script>
-        document.getElementById('btn').addEventListener('click', function () {
-
-            window.location.href = 'index.html';
-
+        document.getElementById('logout-btn').addEventListener('click', function () {
+            window.location.href = './login.html'
         })
 
         // 1st step 
